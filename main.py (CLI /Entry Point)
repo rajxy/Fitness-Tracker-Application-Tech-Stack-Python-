@@ -1,0 +1,32 @@
+from src.fitness_calculator import FitnessCalculator
+from src.workout_logger import WorkoutLogger
+from src.analytics import FitnessAnalytics
+from src.auth_manager import AuthManager
+
+def main():
+    print("==============================================")
+    print("      FITNESS TRACKER APPLICATION (PYTHON)    ")
+    print("==============================================")
+
+    auth = AuthManager()
+    logger = WorkoutLogger()
+
+    username = "rajarshi"
+    auth.create_user(username, "pass123", weight=70, height=175, age=21, target_calories=400)
+
+    # Log sample workout
+    duration = 45
+    weight = 70
+    activity = "Running (8 km/h)"
+    cals = FitnessCalculator.calculate_calories_burned(activity, duration, weight)
+
+    logger.log_workout(username, activity, duration, cals, notes="Morning track session")
+    print(f"\n[SUCCESS] Logged '{activity}' for {duration} mins. Calories burned: {cals} kcal")
+
+    # Display Analytics Dashboard
+    print("\n[INFO] Generating interactive visual progress analytics...")
+    user_data = logger.get_user_logs(username)
+    FitnessAnalytics.plot_calorie_progress(user_data, target_daily_calories=400)
+
+if __name__ == "__main__":
+    main()
