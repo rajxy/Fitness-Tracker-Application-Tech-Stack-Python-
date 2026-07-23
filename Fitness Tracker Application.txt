@@ -1,0 +1,20 @@
+Fitness-Tracker-Python/
+│
+├── assets/                       # UI screenshots and dashboard charts for README
+│   └── dashboard_preview.png
+├── data/                         # Persistent local database/storage
+│   ├── users.json
+│   └── workout_logs.csv
+├── src/                          # Core source code
+│   ├── __init__.py
+│   ├── auth_manager.py           # User profiles & secure data encryption/storage
+│   ├── fitness_calculator.py     # BMR, TDEE & automated calorie-burn formulas
+│   ├── workout_logger.py         # Pandas-based logging & multi-parameter filtering
+│   ├── analytics.py              # Matplotlib data visualization & progress charts
+│   └── ui_dashboard.py           # GUI Dashboard built with CustomTkinter
+│
+├── .gitignore
+├── LICENSE                       # MIT License
+├── README.md                     # Comprehensive GitHub documentation
+├── main.py                       # Application entry point
+└── requirements.txt              # Python dependencies
